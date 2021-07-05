@@ -15,11 +15,11 @@ while True:
     energy_left = 0
     weather_desc = ''
 
-###### ELTHAM WEATHER POLL SECTION ############
-    weather_token = "bcbe697433538c65699afbaf2c82eff4"
-    city_name = "Eltham"
+###### CITY WEATHER POLL SECTION ############
+    weather_token = "ababxbabsabasbdabdabda" # create your own token on openweathermap or other similar weather sites 
+    city_name = "add your city name" # replace the text string with your city name 
 
-    query = {'q':'Eltham,Vic,Au', 'appid':'bcbe697433538c65699afbaf2c82eff4'}
+    query = {'q':'City,State,CountryCode', 'appid':'ababxbabsabasbdabdabda'} # replace with your city, state, appID on OpenWeather and country code
     resp2 = requests.get('https://api.openweathermap.org/data/2.5/weather', params=query)
     data1 = resp2.json()
 
@@ -31,15 +31,15 @@ while True:
     weather_desc = dat2['weather'][0]['description']
     #print(weather_desc)
 
-        ###### ELTHAM WEATHER POLL SECTION END ############
+    ###### CITY WEATHER POLL SECTION END ############
 
-        ###### TESLA POWERWALL AUTHORIZATION AND DATA FETCH SECTION ############
+    ###### TESLA POWERWALL OR CAR AUTHORIZATION AND DATA FETCH SECTION ############
 
-    url = "https://owner-api.teslamotors.com/api/1/products"
+    url = "https://owner-api.teslamotors.com/api/1/products" # if you want to monitor Tesla car instead, you will need to change this section
 
     headers = CaseInsensitiveDict()
     headers["Accept"] = "application/json"
-    headers["Authorization"] = "Bearer qts-41e10740937191b3b6c8b1ac02fc343b8d7014b10e6ba55ddddf05419ec6e6a7"
+    headers["Authorization"] = "Bearer qts-ababxbabsabasbdabdabda" # generate this token on iOS and Android AuthAppForTesla
 
     resp = requests.get(url, headers=headers)
 
@@ -58,15 +58,15 @@ while True:
     #print(battery_id)
     #print(total_energy)
 
-        ###### TESLA POWERWALL AUTHORIZATION AND DATA FETCH SECTION ############
+    ###### TESLA POWERWALL OR CAR AUTHORIZATION AND DATA FETCH SECTION ############
 
-        ####### BATTERY STATUS SECTION ##########
+    ####### BATTERY STATUS SECTION ##########
 
     url = "https://owner-api.teslamotors.com/api/1/powerwalls/"+battery_id+"/status"
 
     headers = CaseInsensitiveDict()
     headers["Accept"] = "application/json"
-    headers["Authorization"] = "Bearer qts-41e10740937191b3b6c8b1ac02fc343b8d7014b10e6ba55ddddf05419ec6e6a7"
+    headers["Authorization"] = "Bearer qts-ababxbabsabasbdabdabda" # generate this token on iOS and Android AuthAppForTesla
 
     resp3 = requests.get(url, headers=headers)
     resp3 = resp3.json()
@@ -86,8 +86,9 @@ while True:
 
     headers = CaseInsensitiveDict()
     headers["Accept"] = "application/json"
-    headers["Authorization"] = "Bearer qts-41e10740937191b3b6c8b1ac02fc343b8d7014b10e6ba55ddddf05419ec6e6a7"
-
+    
+    headers["Authorization"] = "Bearer qts-ababxbabsabasbdabdabda" # generate this token on iOS and Android AuthAppForTesla
+    
     resp4 = requests.get(url, headers=headers)
     resp4 = resp4.json()
 
@@ -155,10 +156,12 @@ while True:
  
 
     headers = {
-        'Authorization': 'Api-Token dt0c01.ZTR2P6K36I4FRF76UBKDYFNR.HVE6I55P3HFDKXL4D4PDVYJXWYIYS4FYZW3UUTSTIGO7ZJRQOPXASXVXKIZWFNZP',
+        'Authorization': 'Api-Token dt0c01.aasxdasfafaassf', #API Token generated in Dynatrace or similar Observability platform for metrics ingestion
         'Content-Type': 'text/plain',
     }
 
+    # adjust this section if not using Dynatrace as an Observability solution
+    
     metric1 = dt_metric_data
     metric2 = dt_metric_data2
     metric3 = dt_metric_data3
@@ -185,5 +188,5 @@ while True:
     print(resp5)
     print(resp6)
 
-    time.sleep(300)
+    time.sleep(300) # 5 mins delay in sending the next stream of metrics, adjust as per required resolution.
 
