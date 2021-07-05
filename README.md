@@ -1,7 +1,7 @@
 # tesla-powerwall-observability-plugin
-A fun observability project for Tesla product owners
+This is a fun observability project themed Dynatrace plugin for Tesla product owners
 
-Super straightforward to observe and manage your Tesla Powerwall with this Python service
+Think this is difficult, think again. Its super straightforward to observe and manage your Tesla Powerwall with this Python service
 
 Outcomes:
 
