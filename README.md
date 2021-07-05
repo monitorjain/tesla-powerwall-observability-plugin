@@ -3,10 +3,12 @@ A fun observability project for Tesla product owners
 
 Super straightforward to observe and manage your Tesla Powerwall with this Python service
 
-Outcomes
+Outcomes:
+
 ![smart electricity Dashboard](https://user-images.githubusercontent.com/45892212/124455528-095c2500-ddcd-11eb-95e1-fc64c8f884bc.png)
 
-Solution Architecture
+Solution Architecture:
+
 ![Tesla Powerwall smart storm watcher architecture](https://user-images.githubusercontent.com/45892212/124455542-0d884280-ddcd-11eb-9492-09ee11dd5676.png)
 
 Pre-requisites:
